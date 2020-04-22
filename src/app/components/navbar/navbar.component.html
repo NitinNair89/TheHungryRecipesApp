@@ -1,0 +1,25 @@
+<nav>
+    <mat-toolbar>
+        <div class="container">
+            <a href="#" class="brand">The Hungry Recipes</a>
+            <ul class="navbar" id="menuList">
+                <li class="nav-item">
+                    <a class="nav-link" href="#random">Random</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item" style="display: none;">
+                    <a class="nav-link" href="#" routerLink="login">Login</a>
+                </li>
+            </ul>
+            <mat-icon id="menuToggler" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+            <mat-menu #menu="matMenu">
+                <a mat-menu-item href="#random">Random</a>
+                <a mat-menu-item>About</a>
+                <mat-divider  style="display: none;"></mat-divider>
+                <a mat-menu-item href="#" routerLink="login"  style="display: none;">Login</a>
+            </mat-menu>
+        </div>
+    </mat-toolbar>
+</nav>
