@@ -1,4 +1,8 @@
 # TheHungryRecipes
+A food recipes website with clean user interface powered by TheMealDB free API.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/70d48156-7527-4f50-995a-7567e8409d0e/deploy-status)](https://app.netlify.com/sites/thehungryrecipes/deploys)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 

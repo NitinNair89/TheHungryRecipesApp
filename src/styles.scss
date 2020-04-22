@@ -1,1 +1,200 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+:root {
+    --theme-text: #43A047;
+    --theme-bg: #29B6F6;
+}
+
+html, body { 
+    height: 100%; 
+    scroll-behavior: smooth 
+}
+body { 
+    margin: 0; 
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    display: flex; 
+    flex-direction: column; 
+    flex-wrap: nowrap; 
+    background-color: whitesmoke;
+    color: black
+}
+a, a:active, 
+a:visited, 
+a:hover {
+    color: black;
+    text-decoration: none 
+}
+#btnGroup a:first-of-type {
+    margin-right: 20px
+}
+.heading { 
+    color: var(--theme-text) 
+}
+.brand { 
+    font-size: 20px; 
+    color: white 
+}
+.heading {
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+    text-align: center;
+    margin-bottom: 0;
+}
+img:not(:last-of-type) {
+    margin-right: 10px
+}
+.small {
+    font-size: 1.5rem
+}
+
+section#landing {
+    height: 100vh;
+    align-items: center
+}
+
+/* Nav */
+.navbar { 
+    list-style-type: none; 
+    margin-bottom: 0 
+}
+.navbar > li { 
+    display: inline
+}
+.nav-item .nav-link { 
+    padding: 5px 20px;
+    background-color: inherit;
+    border-radius: 5px;
+    transition: background-color .1s ease;
+    color: white
+}
+.nav-link:hover,
+.nav-link:focus,
+.nav-link:active,
+.nav-link:visited,
+.button:hover { 
+    background-color: var(--theme-text); 
+    color: white 
+}
+
+#about {
+    margin-bottom: 30px
+}
+
+/* Flex */
+.d-flex {
+    display: flex
+}
+.align-self-center {
+    align-self: center
+}
+.flex-row {
+    flex-direction: row
+}
+.flex-col {
+    flex-direction: column
+}
+.flex-30 {
+    width: 30%
+}
+.flex-70 {
+    width: 70%
+}
+
+/* Buttons */ 
+.button {
+    box-shadow: 2px 6px 15px rgba(0,0,0,0.1);
+    font-weight: bold;
+    font-size: 13px;
+    border: 1px solid black
+}
+.button:hover {
+    transition: background-color 300ms ease;
+    color: white
+}
+.button .mat-icon {
+    position: relative;
+    top: 4px;
+    left: 5px
+}
+#searchIcon {
+    top: 8px
+}
+
+/* Theming */
+.mat-toolbar {
+    background-color: var(--theme-text);
+    color: white
+}
+small {
+    color: rgba(0, 0, 0, 0.54)
+}
+
+/* Utilities */
+.mb-0 {
+    margin-bottom: 0
+}
+
+/* Skeleton overrides */ 
+.container:after, .row:after, .u-cf { display: none }
+
+/* Media Queries */
+/* Larger than tablets */
+@media only screen and (min-width: 767px ) {
+    #menuToggler {
+        display: none
+    }
+}
+
+/* Smaller than standard 960px */
+@media only screen and (max-width: 959px) {
+
+}
+/* Tablet portrait to standard 960px */
+@media only screen and ( min-width: 768px ) and ( max-width: 959px ) {
+    
+}
+/* All mobiles */
+@media only screen and ( max-width: 767px ) {
+    #menuList {
+        display: none
+    }
+    #menuToggler {
+        display: inline
+    }
+    section#landing,
+    #about {
+        padding-top: 30px;
+        height: auto
+    }
+    #landing,
+    #landingWrapper,
+    #about,
+    #aboutWrapper {
+        flex-direction: column
+    }
+    #landingWrapper,
+    #aboutWrapper {
+        align-items: center
+    }
+    #landingWrapper div,
+    #aboutWrapper div {
+        width: 100%
+    }
+    #landingWrapper > div:first-of-type,
+    #aboutWrapper > div:first-of-type {
+        margin-bottom: 30px
+    }
+}
+/* Mobile landscape to Tablet portrait */
+@media only screen and ( min-width: 480px ) and ( max-width: 767px ) {
+
+}
+/* Mobile portrait to landscape */ 
+@media only screen and ( max-width: 479px ) {
+
+}
