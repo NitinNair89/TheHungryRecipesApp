@@ -52,9 +52,16 @@ img:not(:last-of-type) {
     font-size: 1.5rem
 }
 
-section#landing {
-    height: 100vh;
+section#landing,
+section#random {
     align-items: center
+}
+
+section#landing {
+    height: 90vh
+}
+section#random {
+    height: 100vh
 }
 
 /* Nav */
@@ -121,9 +128,6 @@ section#landing {
     top: 4px;
     left: 5px
 }
-#searchIcon {
-    top: 8px
-}
 
 /* Theming */
 .mat-toolbar {
@@ -167,25 +171,31 @@ small {
         display: inline
     }
     section#landing,
+    section#random
     #about {
         padding-top: 30px;
         height: auto
     }
     #landing,
     #landingWrapper,
+    #random,
+    #randomWrapper,
     #about,
     #aboutWrapper {
         flex-direction: column
     }
     #landingWrapper,
+    #randomWrapper,
     #aboutWrapper {
         align-items: center
     }
     #landingWrapper div,
+    #randomWrapper div,
     #aboutWrapper div {
         width: 100%
     }
     #landingWrapper > div:first-of-type,
+    #randomWrapper > div:first-of-type,
     #aboutWrapper > div:first-of-type {
         margin-bottom: 30px
     }
@@ -196,5 +206,16 @@ small {
 }
 /* Mobile portrait to landscape */ 
 @media only screen and ( max-width: 479px ) {
-
+    #btnGroup .button {
+        width: 100%
+    }
+}
+/* */
+@media only screen and ( max-width: 285px ) {
+    .brand { 
+        font-size: 16px
+    }
+    #btnGroup .mat-icon {
+        display: none
+    }
 }
