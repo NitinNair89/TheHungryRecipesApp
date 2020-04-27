@@ -3,10 +3,10 @@
 <section id="landing" class="d-flex flex-row">
   <div class="container">
     <div class="d-flex" id="landingWrapper">
-      <div class="flex-30">
+      <div class="flex-40">
         <h1 class="heading">The Hungry Recipes</h1>
       </div>
-      <div class="d-flex flex-col flex-70">
+      <div class="d-flex flex-col flex-60">
         <div>
           <h4>Confused what to cook? <br/>
             <small>Search a recipe or try a random recipe!</small>
@@ -14,20 +14,24 @@
           <input class="u-full-width" type="text" placeholder="Search recipes" id="searchRecipe" />
         </div>
 
-        <div id="btnGroup">
-          <a class="button btnSearchRecipe" href="#mealCardsSection" title="Search">
+        <div class="btnGroup">
+          <a tabindex="0" class="button btnSearchRecipe" href="#mealCardsSection" title="Search recipe">
             <span>Search Recipe</span>
             <mat-icon aria-hidden="true" id="searchIcon">outdoor_grill</mat-icon>
           </a>
-          <a class="button btnRandomRecipe" href="#random" title="Show a random recipe" onclick="clear()">
+          <a tabindex="0" class="button btnRandomRecipe" href="#random" title="Show a random recipe" (click)="fetchRecipe('r')">
             <span>Random Recipe</span>
             <mat-icon aria-hidden="true">fastfood</mat-icon>
           </a>
         </div>
 
         <div class="row">
-          <div class="eight columns">
-            <ul class="nav-list u-full-width" style="text-align:center;" id="NavBarCategory"></ul>
+          <div class="twelve columns">
+            <ul class="navbar u-full-width" id="NavBarCategory">
+              <li class="nav-item" *ngFor = "let category of mealCategories">
+                <a tabindex="0" class="navbar-meal-category">{{category}}</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -35,14 +39,42 @@
   </div>
 </section>
 
-<section id="random" class="d-flex flex-row">
+<section id="random" class="d-flex flex-row" *ngIf={{randomMeal}}>
   <div class="container">
     <div class="d-flex" id="randomWrapper">
-      <div class="flex-30">
+      <div class="flex-40">
         <h1 class="heading">The Random Recipe</h1>
       </div>
-      <div class="d-flex flex-col flex-70">
-
+      <div class="d-flex flex-col flex-60">
+        <div class="btnGroup">
+          <a tabindex="0" class="button btnSearchRecipe" href="#mealCardsSection" title="Search recipe">
+            <span>Search Recipe</span>
+            <mat-icon aria-hidden="true" id="searchIcon">outdoor_grill</mat-icon>
+          </a>
+          <a tabindex="0" class="button btnRandomRecipe" href="#random" title="Show a random recipe" (click)="fetchRecipe('r')">
+            <span>Random Recipe</span>
+            <mat-icon aria-hidden="true">fastfood</mat-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="four columns">
+        <img id="randomMealImg" src="{{randomMeal.strMealThumb}}" />
+      </div>
+      <div class="eight columns mealMetadata" id="randomMealMetadata">
+        <span>Name:</span> Beef and Oyster pie <br>
+        <span>Area:</span> British <br>
+        <span>Category:</span> Beef <br>
+        <span>Tags:</span> Pie <br>
+        <span>YouTube:</span> <a href="https://www.youtube.com/watch?v=ONX74yP6JnI" target="_blank" title="Watch how to cook Beef and Oyster pie">https://www.youtube.com/watch?v=ONX74yP6JnI</a><br><span>Source:</span> <a href="https://www.bbc.co.uk/food/recipes/beef_and_oyster_pie_65230" target="_blank" title="Watch how to cook Beef and Oyster pie">https://www.bbc.co.uk/food/recipes/beef_and_oyster_pie_65230</a><br>
+        <span>Ingredients:</span> <br> 
+        <ul class="mb-0"><li>Beef - 900g</li><li>Olive Oil - 3 tbs</li><br><li>Shallots - 3</li><li>Garlic - 2 cloves minced</li><br><li>Bacon - 125g</li><li>Thyme - 1 tbs chopped</li><br><li>Bay Leaf - 2</li><li>Stout - 330ml</li><br><li>Beef Stock - 400ml</li><li>Corn Flour - 2 tbs</li><br><li>Oysters - 8</li><li>Plain Flour - 400g</li><br><li>Salt - pinch</li><li>Butter - 250g</li><br><li>Eggs - To Glaze</li></ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <p id="mealInstructions"></p>
       </div>
     </div>
   </div>
@@ -51,10 +83,10 @@
 <section id="about" class="d-flex flex-row">
     <div class="container">
       <div class="d-flex" id="aboutWrapper">
-        <div class="flex-30">
+        <div class="flex-40">
           <h1 class="heading">About The Hungry Recipes</h1>
         </div>
-        <div class="d-flex flex-col flex-70">
+        <div class="d-flex flex-col flex-60">
           <p>
             <strong>The Hungry Recipes</strong> is powered by the free API provided by 
             <a href="https://www.themealdb.com/" target="_blank" title="TheMealDB.com">TheMealDB</a>, 

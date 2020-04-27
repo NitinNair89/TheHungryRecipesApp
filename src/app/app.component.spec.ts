@@ -29,11 +29,12 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'TheHungryRecipes'`, () => {
+  it(`should have as title and brand name 'The Hungry Recipes'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('TheHungryRecipes');
+    const compiled = fixture.debugElement.nativeElement;
+    expect(app.title).toEqual('The Hungry Recipes');
+    expect(compiled.querySelector('a.brand').textContent).toEqual(app.title);
   });
-
 });

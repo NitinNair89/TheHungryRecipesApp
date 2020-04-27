@@ -2,6 +2,11 @@
     float: right;
     font-size: 14px
 }
+#menuList > .nav-item a:hover,
+#menuList > .nav-item a:focus {
+    background-color: black;
+    color: white
+}
 #menuToggler { 
     cursor: pointer;
     height: auto;
@@ -16,6 +21,6 @@
     -o-transition: background-color .3s ease;
     transition: background-color .3s ease;
 }
-#menuToggler:hover, #menuToggler:focus, #menuToggler:focus-within {
-    background-color: darkgreen
+#menuToggler:hover, #menuToggler:focus {
+    background-color: black
 }

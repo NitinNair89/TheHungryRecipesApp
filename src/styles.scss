@@ -1,7 +1,5 @@
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 :root {
-    --theme-text: #43A047;
-    --theme-bg: #29B6F6;
+    --color: #1b7742;
 }
 
 html, body { 
@@ -17,17 +15,18 @@ body {
     background-color: whitesmoke;
     color: black
 }
-a, a:active, 
+a,
+a:active, 
 a:visited, 
 a:hover {
     color: black;
     text-decoration: none 
 }
-#btnGroup a:first-of-type {
+.btnGroup a:first-of-type {
     margin-right: 20px
 }
 .heading { 
-    color: var(--theme-text) 
+    color: var(--color) 
 }
 .brand { 
     font-size: 20px; 
@@ -42,7 +41,7 @@ a:hover {
     -moz-transform: rotate(-5deg);
     -o-transform: rotate(-5deg);
     transform: rotate(-5deg);
-    text-align: center;
+    text-align: left;
     margin-bottom: 0;
 }
 img:not(:last-of-type) {
@@ -51,7 +50,6 @@ img:not(:last-of-type) {
 .small {
     font-size: 1.5rem
 }
-
 section#landing,
 section#random {
     align-items: center
@@ -82,10 +80,31 @@ section#random {
 .nav-link:hover,
 .nav-link:focus,
 .nav-link:active,
-.nav-link:visited,
-.button:hover { 
-    background-color: var(--theme-text); 
+.nav-link:visited { 
+    background-color: var(--color); 
     color: white 
+}
+#NavBarCategory {
+    text-align: center
+}
+#NavBarCategory > li {
+    display: inline-block
+}
+.navbar-meal-category {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+    padding: 2px 5px;
+    border-radius: 5px
+}
+.navbar-meal-category:hover,
+.navbar-meal-category:focus {
+    background-color: var(--color);
+    color: white
 }
 
 #about {
@@ -105,11 +124,11 @@ section#random {
 .flex-col {
     flex-direction: column
 }
-.flex-30 {
-    width: 30%
+.flex-40 {
+    width: 40%
 }
-.flex-70 {
-    width: 70%
+.flex-60 {
+    width: 60%
 }
 
 /* Buttons */ 
@@ -117,9 +136,12 @@ section#random {
     box-shadow: 2px 6px 15px rgba(0,0,0,0.1);
     font-weight: bold;
     font-size: 13px;
-    border: 1px solid black
+    border: 1px solid var(--color);
+    color: var(--color)
 }
-.button:hover {
+.button:hover,
+.button:focus {
+    background-color: var(--color);
     transition: background-color 300ms ease;
     color: white
 }
@@ -129,9 +151,32 @@ section#random {
     left: 5px
 }
 
+/* Meals */
+#landingWrapper .btnGroup {
+    text-align: center
+}
+#landingWrapper > div:first-of-type,
+#aboutWrapper > div:first-of-type {
+    align-self: center
+}
+#randomMealImg {
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2)
+}
+#randomWrapper .btnGroup {
+    text-align: right
+}
+.mealMetadata ul > li {
+    margin: 0;
+    float: left;
+    width: 50%;
+}
+
 /* Theming */
 .mat-toolbar {
-    background-color: var(--theme-text);
+    background-color: var(--color);
     color: white
 }
 small {
@@ -142,9 +187,15 @@ small {
 .mb-0 {
     margin-bottom: 0
 }
+a:not(.button):not(.brand):not(.nav-link):not(.navbar-meal-category):not(.mat-menu-item) {
+    text-decoration: underline
+}
 
 /* Skeleton overrides */ 
 .container:after, .row:after, .u-cf { display: none }
+input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+    border-color: var(--color)
+}
 
 /* Media Queries */
 /* Larger than tablets */
@@ -160,7 +211,20 @@ small {
 }
 /* Tablet portrait to standard 960px */
 @media only screen and ( min-width: 768px ) and ( max-width: 959px ) {
-    
+}
+@media only screen and ( min-width: 768px ) and ( max-width: 896px ) {
+    .btnGroup .button {
+        width: 185px
+    }
+    .btnGroup a:first-of-type {
+        margin-right: 10px
+    }
+    section#landing,
+    section#random,
+    #about {
+        padding-top: 30px;
+        height: auto
+    }
 }
 /* All mobiles */
 @media only screen and ( max-width: 767px ) {
@@ -171,7 +235,7 @@ small {
         display: inline
     }
     section#landing,
-    section#random
+    section#random,
     #about {
         padding-top: 30px;
         height: auto
@@ -197,7 +261,11 @@ small {
     #landingWrapper > div:first-of-type,
     #randomWrapper > div:first-of-type,
     #aboutWrapper > div:first-of-type {
-        margin-bottom: 30px
+        margin-bottom: 30px;
+        align-self: auto
+    }
+    #randomWrapper .btnGroup {
+        text-align: center
     }
 }
 /* Mobile landscape to Tablet portrait */
@@ -206,7 +274,7 @@ small {
 }
 /* Mobile portrait to landscape */ 
 @media only screen and ( max-width: 479px ) {
-    #btnGroup .button {
+    .btnGroup .button {
         width: 100%
     }
 }
@@ -215,7 +283,7 @@ small {
     .brand { 
         font-size: 16px
     }
-    #btnGroup .mat-icon {
+    .btnGroup .mat-icon {
         display: none
     }
 }
