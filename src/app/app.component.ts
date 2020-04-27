@@ -41,8 +41,6 @@ export class AppComponent implements OnInit {
       case 'r':
         this.appService.fetchRecipe(this.randomMealURL).subscribe(data => {
           this.randomMeal = data.meals[0];
-          console.log(this.randomMeal);
-          console.log(this.randomMeal['strMealThumb']);
         });
         break;
     
