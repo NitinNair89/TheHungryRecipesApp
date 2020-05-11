@@ -1,24 +1,24 @@
 <nav>
     <mat-toolbar>
         <div class="container">
-            <a href="#" class="brand">The Hungry Recipes</a>
+            <a routerLink="/" class="brand" title="The Hungry Recipes App">The Hungry Recipes</a>
             <ul class="navbar" id="menuList">
                 <li class="nav-item">
-                    <a class="nav-link" href="#random">Random</a>
+                    <a tabindex="0" class="nav-link" routerLink="random" title="Fetch a random recipe" aria-label="Fetch a random recipe">Random</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                    <a tabindex="0" class="nav-link" routerLink="about" title="About the Hungry Recipes App" title="Know more about the Hungry Recipes App">About</a>
                 </li>
                 <li class="nav-item" style="display: none;">
-                    <a class="nav-link" href="#" routerLink="login">Login</a>
+                    <a tabindex="0" class="nav-link" routerLink="login" title="Log in to save your favorite recipes" aria-label="Log in to save your favorite recipes">Login</a>
                 </li>
             </ul>
             <mat-icon id="menuToggler" [matMenuTriggerFor]="menu">more_vert</mat-icon>
             <mat-menu #menu="matMenu">
-                <a mat-menu-item href="#random">Random</a>
-                <a mat-menu-item href="#about">About</a>
+                <a tabindex="0" mat-menu-item routerLink="random" title="Fetch a random recipe" aria-label="Fetch a random recipe">Random</a>
+                <a tabindex="0" mat-menu-item routerLink="about" title="About the Hungry Recipes App" title="Know more about the Hungry Recipes App">About</a>
                 <mat-divider  style="display: none;"></mat-divider>
-                <a mat-menu-item href="#" routerLink="login"  style="display: none;">Login</a>
+                <a tabindex="0" mat-menu-item routerLink="login"  style="display: none;" title="Log in to save your favorite recipes" aria-label="Log in to save your favorite recipes">Login</a>
             </mat-menu>
         </div>
     </mat-toolbar>

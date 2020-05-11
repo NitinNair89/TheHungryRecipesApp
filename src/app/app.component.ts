@@ -21,32 +21,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.appSettingsService.loadSettings().subscribe(data => {
-      this.fetchMealCategories(data.categoryList);
       this.randomMealURL = data.randomMeal;
     });
   }
-  
-  // Retrieves meal categories
-  fetchMealCategories(categoryListURL: string): void {
-   this.appService.fetchMealCategories(categoryListURL).subscribe(data => {
-     data.meals.forEach(meal => {
-       this.mealCategories.push(meal.strCategory);
-     });
-   });
-  }
-
-  // Fetch meal recipe
-  fetchRecipe(recipeType: string): void {
-    switch (recipeType) {
-      case 'r':
-        this.appService.fetchRecipe(this.randomMealURL).subscribe(data => {
-          this.randomMeal = data.meals[0];
-        });
-        break;
-    
-      default:
-        break;
-    }
-  }
-  
 }
