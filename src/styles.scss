@@ -4,10 +4,11 @@
 
 html, body { 
     height: 100%; 
-    scroll-behavior: smooth 
+    scroll-behavior: smooth
 }
 body { 
-    margin: 0; 
+    margin: 0;
+    font-size: 16px;
     font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; 
     display: flex; 
     flex-direction: column; 
@@ -60,32 +61,6 @@ img:not(:last-of-type) {
     background-color: var(--color); 
     color: white 
 }
-#NavBarCategory {
-    text-align: center
-}
-#NavBarCategory > li {
-    display: inline-block
-}
-.navbar-meal-category {
-    text-transform: uppercase;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: .2rem;
-    margin-right: 10px;
-    text-decoration: none;
-    color: black;
-    padding: 2px 5px;
-    border-radius: 5px
-}
-.navbar-meal-category:hover,
-.navbar-meal-category:focus {
-    background-color: var(--color);
-    color: white
-}
-
-#about {
-    margin-bottom: 30px
-}
 
 /* Flex */
 .d-flex {
@@ -111,7 +86,7 @@ img:not(:last-of-type) {
 .button {
     box-shadow: 2px 6px 15px rgba(0,0,0,0.1);
     font-weight: bold;
-    font-size: 13px;
+    font-size: 0.8em;
     border: 1px solid var(--color);
     color: var(--color)
 }

@@ -7,11 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class AppService {
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   // Get meal categories
   getMealCategories(): Observable<any>  {
     return this.http.get('https://www.themealdb.com/api/json/v1/1/list.php?c=list');
+  }
+
+  // Fetch random meal
+  getRandomMeal(): Observable<any> {
+    return this.http.get('https://www.themealdb.com/api/json/v1/1/random.php');
   }
 }
