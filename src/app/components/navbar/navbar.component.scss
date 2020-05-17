@@ -1,6 +1,14 @@
+a.brand:hover,
+a.brand:active,
+a.brand:visited {
+    color: inherit
+}
+.brand { 
+    color: white 
+}
 #menuList {
     float: right;
-    font-size: 14px
+    font-size: 0.8em
 }
 #menuList > .nav-item a:hover,
 #menuList > .nav-item a:focus {
