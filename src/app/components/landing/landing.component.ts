@@ -8,17 +8,14 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class LandingComponent implements OnInit {
 
-  private mealCategories = [];
+  mealCategories = [];
 
   constructor(
     private appService: AppService
   ) { }
 
   ngOnInit() {
-    if ( this.mealCategories.length === 0 ) {
-      console.log('here');
       this.getMealCategories();
-    }
   }
 
   // Get meal categories

@@ -2,6 +2,31 @@
     height: 80vh;
     align-items: center
 }
+.btnGroup {
+    margin-bottom: 20px
+}
 .btnGroup button:first-of-type {
     margin-right: 20px
+}
+#NavBarCategory {
+    text-align: center
+}
+#NavBarCategory > li {
+    display: inline-block
+}
+.navbar-meal-category {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: .2rem;
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+    padding: 2px 5px;
+    border-radius: 5px
+}
+.navbar-meal-category:hover,
+.navbar-meal-category:focus {
+    background-color: var(--color);
+    color: white
 }
