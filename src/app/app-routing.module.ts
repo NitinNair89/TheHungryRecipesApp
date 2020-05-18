@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'random', loadChildren: () => import('./components/randomrecipe/randomrecipe.module').then(m => m.RandomrecipeModule) },
   { path: 'landing', loadChildren: () => import('./components/landing/landing.module').then(m => m.LandingModule) },
   { path: '', loadChildren: () => import('./components/landing/landing.module').then(m => m.LandingModule) },
-  { path: 'about', loadChildren: () => import('./components/about/about.module').then(m => m.AboutModule) }
+  { path: 'about', loadChildren: () => import('./components/about/about.module').then(m => m.AboutModule) },
+  { path: 'category', loadChildren: () => import('./components/category/category.module').then(m => m.CategoryModule) }
 ];
 
 @NgModule({

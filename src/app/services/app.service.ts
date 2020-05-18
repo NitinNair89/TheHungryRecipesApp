@@ -16,8 +16,13 @@ export class AppService {
     return this.http.get(environment.apiURL.mealCategories);
   }
 
-  // Fetch random meal
+  // Get random meal
   getRandomMeal(): Observable<any> {
     return this.http.get(environment.apiURL.randomMeal);
+  }
+
+  // Get meals by category
+  getMealsByCategory(categoryName: string): Observable<any> {
+    return this.http.get(environment.apiURL.mealsByCategory + '?c=' + categoryName);
   }
 }
