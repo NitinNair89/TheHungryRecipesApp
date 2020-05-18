@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/app/services/app.service';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-randomrecipe',
@@ -19,11 +19,12 @@ export class RandomrecipeComponent implements OnInit {
     private appService: AppService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.fetchRandomRecipe();
   }
 
-  fetchRandomRecipe(): void { 
+  fetchRandomRecipe(): void {
+    
     this.appService.getRandomMeal().subscribe(data => {
       data.meals.forEach(meal => {
         this.mealThumb = meal.strMealThumb;
@@ -35,11 +36,14 @@ export class RandomrecipeComponent implements OnInit {
           let ingredient = 'strIngredient' + index;
           let measure = 'strMeasure' + index;
   
-          if ( meal[ingredient] ) {
+          if ( meal[ingredient] && meal[measure] ) {
             this.mealIngredients.push( meal[ingredient] + ' - ' + meal[measure]);
+          } else if ( meal[ingredient] ) {
+            this.mealIngredients.push( meal[ingredient] );
           }
         }
       });
     });
   }
+
 }
