@@ -25,7 +25,7 @@
             <div class="twelve columns">
               <ul class="navbar u-full-width" id="NavBarCategory">
                 <li class="nav-item" *ngFor = "let category of mealCategories">
-                  <a tabindex="0" class="navbar-meal-category">{{category}}</a>
+                  <a tabindex="0" class="navbar-meal-category" routerLink="category/{{category}}">{{category}}</a>
                 </li>
               </ul>
             </div>

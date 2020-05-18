@@ -1,0 +1,27 @@
+<section id="category">
+    <div class="container">
+        <div class="row">
+            <div class="four columns">
+                <img id="categoryThumb" src="https://www.themealdb.com/images/category/beef.png" alt="" title="" />
+            </div>
+            <div class="eight columns">
+                <aside>
+                    <h3>{{mealCategoryName | uppercase}}</h3>
+                    <p></p>
+                </aside>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <div id="grid">
+                    <mat-card *ngFor="let meal of mealCategoryData">
+                        <img mat-card-image src="{{meal.strMealThumb}}" alt="">
+                        <mat-card-content>
+                            <h5>{{meal.strMeal}}</h5>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
