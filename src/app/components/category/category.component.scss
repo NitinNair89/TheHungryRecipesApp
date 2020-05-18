@@ -1,0 +1,21 @@
+#category {
+    margin-top: 20px;
+}
+#categoryThumb {
+    height: 80%;
+    width:  80%
+}
+.mat-card {
+    margin-bottom: 20px
+}
+.mat-card-image,
+.mat-card-content {
+    margin-bottom: 0
+}
+#grid {
+    height: 100%;
+    display: grid;
+    grid-gap: 10px 10px;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }

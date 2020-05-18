@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppsettingsService } from './services/appsettings.service';
-import { AppService } from './services/app.service';
+import { Router, RouterEvent, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +9,22 @@ import { AppService } from './services/app.service';
 export class AppComponent implements OnInit {
   title = 'The Hungry Recipes';
 
+  loading: boolean;
 
-  constructor() {}
+  constructor(
+    router: Router
+  ) {
+    this.loading = false;
+    router.events.subscribe(
+      (event: RouterEvent):void => {
+        if ( event instanceof NavigationStart ) {
+          this.loading = true;
+        } else if ( event instanceof NavigationEnd ) {
+          this.loading = false;
+        }
+      }
+    );
+  }
 
   ngOnInit(): void {}
 }

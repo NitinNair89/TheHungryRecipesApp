@@ -15,11 +15,9 @@
           <div class="btnGroup">
             <button type="submit" tabindex="0" class="button btnSearchRecipe" title="Search for a recipe">
               <span>Search Recipe</span>
-              <mat-icon aria-hidden="true" id="searchIcon">outdoor_grill</mat-icon>
             </button>
             <button mat-button color="primary" type="button" tabindex="0" class="button btnRandomRecipe" title="Show a random recipe">
               <span>Random Recipe</span>
-              <mat-icon aria-hidden="true">fastfood</mat-icon>
             </button>
           </div>
   
@@ -27,7 +25,7 @@
             <div class="twelve columns">
               <ul class="navbar u-full-width" id="NavBarCategory">
                 <li class="nav-item" *ngFor = "let category of mealCategories">
-                  <a tabindex="0" class="navbar-meal-category">{{category}}</a>
+                  <a tabindex="0" class="navbar-meal-category" routerLink="category/{{category}}">{{category}}</a>
                 </li>
               </ul>
             </div>

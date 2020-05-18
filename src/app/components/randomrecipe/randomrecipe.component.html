@@ -8,18 +8,16 @@
           <div class="btnGroup">
             <a tabindex="0" class="button btnSearchRecipe" routerLink="/landing" title="Search recipe">
               <span>Search Recipe</span>
-              <mat-icon aria-hidden="true" id="searchIcon">outdoor_grill</mat-icon>
             </a>
             <button tabindex="0" class="button btnRandomRecipe" title="Show a random recipe" (click)="fetchRandomRecipe()">
-              <span>Random Recipe</span>
-              <mat-icon aria-hidden="true">fastfood</mat-icon>
+              <span>Another Recipe</span>
             </button>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="four columns">
-          <img id="randomMealImg" src="{{ mealThumb }}" />
+          <img id="randomMealImg" src="{{ mealThumb }}" title="{{ mealName }} thumbnail image" alt="{{ mealName }} thumbnail image" />
         </div>
         <div class="eight columns mealMetadata" id="randomMealMetadata">
           <ul>
@@ -27,9 +25,11 @@
               {{ items }}
             </li>
           </ul>
-          <p>
-            <a *ngIf="mealYoutubeLink" href="{{ mealYoutubeLink }}">Watch on YouTube</a>
-          </p>
+          <div class="row">
+            <div class="columns">
+              <a *ngIf="mealYoutubeLink" href="{{ mealYoutubeLink }}">Watch on YouTube</a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">

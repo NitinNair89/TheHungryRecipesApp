@@ -1,36 +1,21 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { RandomrecipeComponent } from './components/randomrecipe/randomrecipe.component';
-import { AboutComponent } from './components/about/about.component';
-import { LandingComponent } from './components/landing/landing.component';
-
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
   },
-  {
-    path: 'random',
-    component: RandomrecipeComponent
-  },
-  {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
-    path: '',
-    component: LandingComponent
-  },
-  {
-    path: 'landing',
-    component: LandingComponent
-  }
+  { path: 'random', loadChildren: () => import('./components/randomrecipe/randomrecipe.module').then(m => m.RandomrecipeModule) },
+  { path: 'landing', loadChildren: () => import('./components/landing/landing.module').then(m => m.LandingModule) },
+  { path: '', loadChildren: () => import('./components/landing/landing.module').then(m => m.LandingModule) },
+  { path: 'about', loadChildren: () => import('./components/about/about.module').then(m => m.AboutModule) },
+  { path: 'category', loadChildren: () => import('./components/category/category.module').then(m => m.CategoryModule) }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
