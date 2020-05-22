@@ -2,8 +2,11 @@
     margin-top: 20px;
 }
 #categoryThumb {
-    height: 80%;
-    width:  80%
+    height: 100%;
+    width:  100%
+}
+#category h3 {
+    margin-bottom: 10px
 }
 .mat-card {
     margin-bottom: 20px
@@ -13,9 +16,10 @@
     margin-bottom: 0
 }
 #grid {
+    margin-top:20px;
     height: 100%;
     display: grid;
     grid-gap: 10px 10px;
     grid-auto-rows: auto;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
   }

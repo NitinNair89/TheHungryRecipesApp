@@ -10,8 +10,9 @@ import { AppService } from 'src/app/services/app.service';
 
 export class CategoryComponent implements OnInit {
 
-  mealCategoryName: string;
-  mealCategoryData = [];
+  categoryName: string;
+  recipesBySpecificCategory = [];
+  categoryInfo: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,20 +21,29 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategory();
-    this.getMealsByCategory(this.mealCategoryName);
+
+    this.recipesBySpecificCategory = this.appService.getRecipesByCategoryStoredData();
+
+    // If data was not previously stored, fetch latest data
+    if ( this.recipesBySpecificCategory.length === 0 ) {
+      this.getRecipesByCategory(this.categoryName);
+    }
+
+    this.categoryInfo = this.appService.getCategoryData(this.categoryName);
   }
 
   // Get ':category' param value
   getCategory(): void {
-    this.mealCategoryName = this.route.snapshot.paramMap.get('category');
+    this.categoryName = this.route.snapshot.paramMap.get('category');
   }
 
   // Get category info
-  getMealsByCategory(categoryName: string): void {
-    this.appService.getMealsByCategory(categoryName).subscribe(data => {
-      data.meals.forEach(meal => {
-        this.mealCategoryData.push(meal);
+  getRecipesByCategory(categoryName: string): void {
+    this.appService.getRecipesByCategory(categoryName).subscribe(data => {
+      data.meals.forEach((meal, index) => {
+        this.recipesBySpecificCategory[index] = meal;
       });
+      this.appService.setRecipesByCategory(this.recipesBySpecificCategory);
     });
   }
 }
