@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent, NavigationStart, NavigationEnd } from '@angular/router';
+import { AppService } from './services/app.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent implements OnInit {
   loading: boolean;
 
   constructor(
-    router: Router
+    router: Router,
+    private appService: AppService
   ) {
     this.loading = false;
     router.events.subscribe(

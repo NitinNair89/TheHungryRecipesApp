@@ -8,22 +8,30 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class LandingComponent implements OnInit {
 
-  mealCategories = [];
+  allCategories = [];
 
   constructor(
     private appService: AppService
   ) { }
 
   ngOnInit() {
-      this.getMealCategories();
+      this.allCategories = this.appService.getMealCategoriesStoredData();
+
+      console.log(this.allCategories.length);
+
+      // If data was not previously stored, fetch latest data
+      if ( this.allCategories.length === 0 ) {
+        this.getMealCategories();
+      }
   }
 
   // Get meal categories
   getMealCategories(): void {
     this.appService.getMealCategories().subscribe(data => {
-      data.meals.forEach(meal => {
-        this.mealCategories.push(meal.strCategory);
+      data.categories.forEach((category, index) => {
+        this.allCategories[index] = category;
       });
+      this.appService.setMealCategories(this.allCategories);
     });
   }
   

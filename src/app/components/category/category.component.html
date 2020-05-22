@@ -2,19 +2,19 @@
     <div class="container">
         <div class="row">
             <div class="four columns">
-                <img id="categoryThumb" src="https://www.themealdb.com/images/category/beef.png" alt="" title="" />
+                <img id="categoryThumb" src="{{categoryInfo.strCategoryThumb}}" alt="" title="" />
             </div>
             <div class="eight columns">
                 <aside>
-                    <h3>{{mealCategoryName | uppercase}}</h3>
-                    <p></p>
+                    <h3>{{categoryName | uppercase}}</h3>
+                    <p>{{categoryInfo.strCategoryDescription}}</p>
                 </aside>
             </div>
         </div>
         <div class="row">
             <div class="twelve columns">
                 <div id="grid">
-                    <mat-card *ngFor="let meal of mealCategoryData">
+                    <mat-card *ngFor="let meal of recipesBySpecificCategory">
                         <img mat-card-image src="{{meal.strMealThumb}}" alt="">
                         <mat-card-content>
                             <h5>{{meal.strMeal}}</h5>
