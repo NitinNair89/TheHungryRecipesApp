@@ -24,6 +24,7 @@ export class RandomrecipeComponent implements OnInit {
   }
 
   fetchRandomRecipe(): void {
+    this.mealIngredients = [];
     
     this.appService.getRandomMeal().subscribe(data => {
       data.meals.forEach(meal => {
