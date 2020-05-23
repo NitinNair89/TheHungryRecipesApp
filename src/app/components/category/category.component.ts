@@ -22,12 +22,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
     this.getCategory();
 
-    this.recipesBySpecificCategory = this.appService.getRecipesByCategoryStoredData();
-
-    // If data was not previously stored, fetch latest data
-    if ( this.recipesBySpecificCategory.length === 0 ) {
-      this.getRecipesByCategory(this.categoryName);
-    }
+    this.getRecipesByCategory(this.categoryName);
 
     this.categoryInfo = this.appService.getCategoryData(this.categoryName);
   }

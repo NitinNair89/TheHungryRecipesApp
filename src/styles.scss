@@ -126,7 +126,8 @@ img:not(:last-of-type) {
 }
 
 /* Theming */
-.mat-toolbar {
+.mat-toolbar,
+a.mat-raised-button {
     background-color: var(--color);
     color: white
 }
@@ -135,7 +136,7 @@ img:not(:last-of-type) {
 .mb-0 {
     margin-bottom: 0
 }
-a:not(.button):not(.brand):not(.nav-link):not(.navbar-meal-category):not(.mat-menu-item) {
+a:not(.button):not(.brand):not(.nav-link):not(.navbar-meal-category):not(.mat-menu-item):not(.mat-raised-button) {
     text-decoration: underline
 }
 
@@ -147,7 +148,7 @@ input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focu
 a {
     color: blue
 }
-a:hover {
+a:not(.button):not(.brand):not(.nav-link):not(.navbar-meal-category):not(.mat-menu-item):not(.mat-raised-button):hover {
     color: darkviolet
 }
 a.nav-link,

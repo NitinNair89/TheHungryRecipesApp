@@ -13,6 +13,7 @@ export class AppService {
   allMealCategoriesData = [];
   recipesBySpecificCategory = [];
   singleCategoryInfo = {};
+  singleRecipe = {};
 
   constructor(private http: HttpClient) {}
 
@@ -66,5 +67,15 @@ export class AppService {
 
     }
     return this.singleCategoryInfo; 
+  }
+
+  // Get specific meal recipe
+  getRecipe(recipeID: string): Observable<any> {
+    return this.http.get(environment.apiURL.mealRecipe + '?i=' +recipeID);
+  }
+
+  // Store specific meal recipe
+  storeSingleRecipe(recipe: Array<string>): void {
+    this.singleRecipe = recipe;
   }
 }
