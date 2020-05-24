@@ -9,16 +9,17 @@
             <h4>Confused what to cook? <br/>
               <small>Search a recipe or try a random recipe!</small>
             </h4>
-            <input class="u-full-width" type="text" placeholder="Search for recipes" id="searchRecipe" />
+            <input class="u-full-width mb-0" type="text" placeholder="Search for recipes" id="searchRecipe" #name (keyup)="update(name.value)" (blur.enter)="update(name.value)" />
+            <label class="error-text mb-0" *ngIf="inputError">Please provide a recipe name</label>
           </div>
   
           <div class="btnGroup">
-            <button type="submit" tabindex="0" class="button btnSearchRecipe" title="Search for a recipe">
+            <a type="button" mat-button color="primary" tabindex="0" class="button btnSearchRecipe" title="Search for a recipe" (click)="navigate()">
               <span>Search Recipe</span>
-            </button>
-            <button mat-button color="primary" type="button" tabindex="0" class="button btnRandomRecipe" title="Show a random recipe">
+            </a>
+            <a routerLink="/random" mat-button color="primary" tabindex="0" class="button btnRandomRecipe" title="Show a random recipe">
               <span>Random Recipe</span>
-            </button>
+            </a>
           </div>
   
           <div class="row">

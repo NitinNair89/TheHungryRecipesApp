@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -9,20 +10,23 @@ import { AppService } from 'src/app/services/app.service';
 export class LandingComponent implements OnInit {
 
   allCategories = [];
+  recipeName: string;
+  inputError: boolean;
 
   constructor(
+    private router: Router,
     private appService: AppService
   ) { }
 
   ngOnInit() {
-      this.allCategories = this.appService.getMealCategoriesStoredData();
+    this.inputError = false;
+    
+    this.allCategories = this.appService.getMealCategoriesStoredData();
 
-      console.log(this.allCategories.length);
-
-      // If data was not previously stored, fetch latest data
-      if ( this.allCategories.length === 0 ) {
-        this.getMealCategories();
-      }
+    // If data was not previously stored, fetch latest data
+    if ( this.allCategories.length === 0 ) {
+      this.getMealCategories();
+    }
   }
 
   // Get meal categories
@@ -34,5 +38,19 @@ export class LandingComponent implements OnInit {
       this.appService.setMealCategories(this.allCategories);
     });
   }
-  
+
+  // Store search value
+  update(inputValue: string): void {
+    this.recipeName = inputValue;
+  }
+
+  // Navigate user to recipe list view
+  navigate(): void {
+    console.log(this.recipeName);
+    if ( this.recipeName === undefined ) {
+      this.inputError = true;
+    } else {
+      this.router.navigate(['/recipelist',this.recipeName]);
+    }
+  }  
 }
