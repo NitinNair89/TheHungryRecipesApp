@@ -78,4 +78,9 @@ export class AppService {
   storeSingleRecipe(recipe: Array<string>): void {
     this.singleRecipe = recipe;
   }
+
+  // Get recipe by name
+  getRecipeByName(name: string): Observable<any> {
+    return this.http.get(environment.apiURL.recipeByName + '?s=' + name);
+  }
 }

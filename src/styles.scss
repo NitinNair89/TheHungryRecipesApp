@@ -139,6 +139,10 @@ a.mat-raised-button {
 a:not(.button):not(.brand):not(.nav-link):not(.navbar-meal-category):not(.mat-menu-item):not(.mat-raised-button) {
     text-decoration: underline
 }
+.error-text {
+    color: darkred;
+    font-weight: normal
+}
 
 /* Skeleton overrides */ 
 .container:after, .row:after, .u-cf { display: none }

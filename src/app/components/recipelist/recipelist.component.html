@@ -1,0 +1,39 @@
+<section id="recipelist">
+    <div class="container">
+        <div class="row" id="recipeWrapper">
+            <div class="four columns">
+              <h1 class="heading">Searched Recipe</h1>
+            </div>
+            <div class="four columns">
+                <span>
+                    You searched for "<strong>{{recipeName}}</strong>"
+                </span>
+            </div>
+            <div class="four columns">
+                <div class="btnGroup">
+                    <a tabindex="0" class="button btnSearchRecipe" routerLink="/landing" title="Search another recipe">
+                        <span>Search New Recipe</span>
+                    </a>
+                </div>
+            </div>
+          </div>
+        <div class="row">
+            <div class="twelve columns">
+                <div id="grid" *ngIf="recipesByName" >
+                    <mat-card *ngFor="let recipe of recipesByName">
+                        <img mat-card-image src="{{recipe.strMealThumb}}" alt="">
+                        <mat-card-content>
+                            <h5>{{recipe.strMeal}}</h5>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <a mat-raised-button title="View this recipe" routerLink="/recipe/{{recipe.idMeal}}">Recipe</a>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+                <p id="noRecipes" *ngIf="recipesByName.length === 0">
+                    No recipes found! Please search again.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
