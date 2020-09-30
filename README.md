@@ -2,6 +2,11 @@
 A food recipes webapp with clean user interface powered by TheMealDB free API.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/70d48156-7527-4f50-995a-7567e8409d0e/deploy-status)](https://app.netlify.com/sites/thehungryrecipes/deploys)
+![Javascript](https://img.shields.io/badge/Typescript-JS-important)
+![Api](https://img.shields.io/badge/API-TheMealDB-blue)
+
+![ScreenShot](https://raw.githubusercontent.com/Dhanushkgowda3/TheHungryRecipesApp/Uploaded-a-screenshot/ss.PNG)
+
 
 
 ## Setup this project on your local machine
