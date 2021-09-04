@@ -1,6 +1,8 @@
 # TheHungryRecipes
 A food recipes webapp with clean user interface powered by TheMealDB free API.
 
+Live - https://thehungryrecipes.netlify.app/
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/70d48156-7527-4f50-995a-7567e8409d0e/deploy-status)](https://app.netlify.com/sites/thehungryrecipes/deploys)
 
 
