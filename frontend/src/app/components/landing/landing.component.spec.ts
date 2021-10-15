@@ -36,4 +36,9 @@ describe('LandingComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('a.btnRandomRecipe')).toBeTruthy();
   });
+  
+  it('should have page description', () => {
+    let heading = fixture.nativeElement.querySelector('h4');
+    expect(heading.textContent).toEqual('Confused what to cook? Search a recipe or try a random recipe!');
+  });
 });
