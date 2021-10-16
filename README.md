@@ -15,7 +15,7 @@ Live - https://thehungryrecipes.netlify.app/
 - Install project dependencies: `npm install` or `npm i`.
 - If installation finds any vulnerabilities, it will notify you. You can attempt autofix using `npm audit fix`. If you want more information about the vulnerabilities, run `npm audit`.
 - If fixing any vulnerabilities warns for breaking change, contact me.
-- Run `npm audit` once again to check if all vulnerabilities are fixed.
+- Run `npm audit` once again to check if all vulnerabilities are fixed. Some vulnerabilities require manual fix. If you are unaware of how to fix it, kindly ignore those.
 - Run `ng update` to check if all dependencies are installed with latest versions and there are no pending updates. If any update is required, console will prompt you with the command to update versions of dependent libraries. Please execute those commands.
 
 ## Running the webapp on your local machine
