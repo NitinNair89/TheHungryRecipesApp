@@ -15,6 +15,10 @@ a.brand:visited {
     background-color: black;
     color: white
 }
+/*Show proper cursor on hover*/
+li{
+    cursor: pointer;
+}
 #menuToggler { 
     cursor: pointer;
     height: auto;
