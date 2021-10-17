@@ -12,7 +12,7 @@
                 <li class="nav-item">
                     <a tabindex="0" class="nav-link theme-button" title="Themes of the Hungry Recipes App" title="Change themes of the Hungry Recipes App" [matMenuTriggerFor]="subMenu">Themes</a>
                 </li>
-                <li class="nav-item" style="display: none;">
+                <li class="nav-item">
                     <a tabindex="0" class="nav-link" routerLink="login" title="Log in to save your favorite recipes" aria-label="Log in to save your favorite recipes">Login</a>
                 </li>
             </ul>
@@ -21,8 +21,8 @@
                 <a tabindex="0" mat-menu-item routerLink="random" title="Fetch a random recipe" aria-label="Fetch a random recipe">Random</a>
                 <a tabindex="0" mat-menu-item routerLink="about" title="About the Hungry Recipes App" title="Know more about the Hungry Recipes App">About</a>
                 <a tabindex="0" mat-menu-item title="Themes of the Hungry Recipes App" title="Change themes of the Hungry Recipes App" [matMenuTriggerFor]="subMenu">Themes</a>
-                <mat-divider  style="display: none;"></mat-divider>
-                <a tabindex="0" mat-menu-item routerLink="login"  style="display: none;" title="Log in to save your favorite recipes" aria-label="Log in to save your favorite recipes">Login</a>
+                <mat-divider></mat-divider>
+                <a tabindex="0" mat-menu-item routerLink="login" title="Log in to save your favorite recipes" aria-label="Log in to save your favorite recipes">Login</a>
             </mat-menu>
             <mat-menu #subMenu="matMenu">
                 <button mat-menu-item (click)="changeThemeToLeafyGreen()">Leafy Green</button>
