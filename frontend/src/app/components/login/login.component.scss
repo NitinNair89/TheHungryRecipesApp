@@ -1,5 +1,5 @@
 .background {
-    background-color: rgba(27,119,66,0.9);
+    background-color: whitesmoke;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,7 @@
 }
 
 .cardStyle {
-    background-color: #1b7742;
+    background-color: var(--color);
     height: 80%;
     width: 80%;
     padding: 0 !important;
@@ -40,11 +40,11 @@
 }
 
 :host ::ng-deep .mat-raised-button {
-    background-color: #1b7742;
+    background-color: var(--color);
     width: 100%;
     color: white;
 }
 
 :host ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-    background-color: #1b7742;
+    background-color: var(--color);
 }
