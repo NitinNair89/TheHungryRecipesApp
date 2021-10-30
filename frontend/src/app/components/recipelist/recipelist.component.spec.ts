@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { RecipelistComponent } from './recipelist.component';
 
@@ -8,7 +10,20 @@ describe('RecipelistComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RecipelistComponent ]
+      declarations: [ RecipelistComponent ],
+      imports: [ HttpClientTestingModule ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get: () => 'NAME'
+              }
+            }
+          },
+        },
+      ]
     })
     .compileComponents();
   }));

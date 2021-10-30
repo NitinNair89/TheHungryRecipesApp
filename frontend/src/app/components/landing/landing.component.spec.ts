@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LandingComponent', () => {
   let component: LandingComponent;
@@ -14,6 +15,7 @@ describe('LandingComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        HttpClientTestingModule,
         RouterTestingModule.withRoutes([
           {path: 'recipelist', loadChildren: () => import('../../components/recipelist/recipelist.module').then(m => m.RecipelistModule)}
         ]),
@@ -44,12 +46,12 @@ describe('LandingComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('a.btnRandomRecipe')).toBeTruthy();
   });
-  
+
   it('should have page description', () => {
     let heading = fixture.nativeElement.querySelector('h4');
     expect(heading.textContent).toBeTruthy();
   });
-  
+
   it('should fail when search value is undefined', () => {
     let inputValue = debugElement.query(By.css('input'));
     component.recipeName = undefined;
@@ -68,5 +70,5 @@ describe('LandingComponent', () => {
     expect(errorElement).toBeNull();
     expect(component.inputError).toEqual(false);
   });
-  
+
 });
