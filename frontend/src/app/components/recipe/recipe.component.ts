@@ -33,9 +33,9 @@ export class RecipeComponent implements OnInit {
     this.recipeID = this.route.snapshot.paramMap.get('id');
   }
 
-  fetchRecipe(recipeID: string): void {
+  private fetchRecipe(recipeID: string): void {
     this.recipeIngredients = [];
-    
+
     this.appService.getRecipe(recipeID).subscribe(recipe => {
       recipe = recipe.meals[0];
       this.recipeThumb = recipe.strMealThumb;
