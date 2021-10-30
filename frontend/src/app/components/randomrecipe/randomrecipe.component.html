@@ -17,25 +17,25 @@
       </div>
       <div class="row">
         <div class="four columns">
-          <img id="randomMealImg" src="{{ mealThumb }}" title="{{ mealName }} thumbnail image" alt="{{ mealName }} thumbnail image" />
+          <img id="randomMealImg" src="{{ meal?.thumb }}" title="{{ meal?.name }} thumbnail image" alt="{{ meal?.name }} thumbnail image" />
         </div>
         <div class="eight columns mealMetadata" id="randomMealMetadata">
           <ul>
-            <li *ngFor = "let items of mealIngredients">
+            <li *ngFor = "let items of meal?.ingredients">
               {{ items }}
             </li>
           </ul>
           <div class="row">
             <div class="columns">
-              <a *ngIf="mealYoutubeLink" href="{{ mealYoutubeLink }}">Watch on YouTube</a>
+              <a *ngIf="meal?.youtubeLink" href="{{ meal?.youtubeLink }}">Watch on YouTube</a>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="twelve columns">
-          <h5>{{ mealName }}</h5>
-          <p id="mealInstructions">{{ mealInstructions }}</p>
+          <h5>{{ meal?.name }}</h5>
+          <p id="mealInstructions">{{ meal?.instructions }}</p>
         </div>
       </div>
     </div>

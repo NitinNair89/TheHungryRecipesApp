@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Meal } from 'src/app/shared/models/meal.model';
 import { AppService } from '../../services/app.service';
 
 @Component({
@@ -6,14 +9,10 @@ import { AppService } from '../../services/app.service';
   templateUrl: './randomrecipe.component.html',
   styleUrls: ['./randomrecipe.component.scss']
 })
-export class RandomrecipeComponent implements OnInit {
+export class RandomrecipeComponent implements OnInit, OnDestroy {
+  meal: Meal;
 
-  mealThumb: string;
-  mealName: string;
-  mealIngredients = [];
-  mealYoutubeLink: string;
-  mealTags = [];
-  mealInstructions: string;
+  ngUnsubscribe: Subject<void> = new Subject();
 
   constructor(
     private appService: AppService
@@ -23,28 +22,15 @@ export class RandomrecipeComponent implements OnInit {
     this.fetchRandomRecipe();
   }
 
-  fetchRandomRecipe(): void {
-    this.mealIngredients = [];
-    
-    this.appService.getRandomMeal().subscribe(data => {
-      data.meals.forEach(meal => {
-        this.mealThumb = meal.strMealThumb;
-        this.mealName = meal.strMeal;
-        this.mealInstructions = meal.strInstructions;
-        this.mealYoutubeLink = meal.strYoutube;
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
 
-        for (let index = 1; index <= 20; index++) {
-          let ingredient = 'strIngredient' + index;
-          let measure = 'strMeasure' + index;
-  
-          if ( meal[ingredient] && meal[measure] ) {
-            this.mealIngredients.push( meal[ingredient] + ' - ' + meal[measure]);
-          } else if ( meal[ingredient] ) {
-            this.mealIngredients.push( meal[ingredient] );
-          }
-        }
-      });
-    });
+  fetchRandomRecipe(): void {
+    this.appService.getRandomMeal()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((meal: Meal) => this.meal = meal);
   }
 
 }
