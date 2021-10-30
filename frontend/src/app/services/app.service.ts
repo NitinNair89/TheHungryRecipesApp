@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-import { environment } from "../../environments/environment";
+import { environment } from '../../environments/environment';
+import { Meal } from '../shared/models/meal.model';
+import { MealHelper } from '../shared/helpers/meal.helper';
 
 @Injectable({
   providedIn: 'root'
@@ -33,8 +36,20 @@ export class AppService {
   }
 
   // Get random meal
-  getRandomMeal(): Observable<any> {
-    return this.http.get(environment.apiURL.randomMeal);
+  getRandomMeal(): Observable<Meal> {
+    return this.http.get(environment.apiURL.randomMeal)
+      .pipe(
+        map(({ meals }: { meals: any[] }) => {
+          const [meal] = meals;
+          return {
+            thumb: meal.strMealThumb,
+            name: meal.strMeal,
+            instructions: meal.strInstructions,
+            youtubeLink: meal.strYoutube,
+            ingredients: MealHelper.formattedIngredients(meal)
+          } as Meal
+        })
+      );
   }
 
   // Store meal recipes for a specific category
@@ -66,7 +81,7 @@ export class AppService {
       }
 
     }
-    return this.singleCategoryInfo; 
+    return this.singleCategoryInfo;
   }
 
   // Get specific meal recipe
