@@ -3,19 +3,21 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider'; 
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule, _MatMenuDirectivesModule } from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        HttpClientTestingModule,
         RouterTestingModule,
-        MatToolbarModule, 
+        MatToolbarModule,
         MatIconModule,
-        MatMenuModule, 
+        MatMenuModule,
         MatDividerModule,
         MatButtonModule
       ],
