@@ -11,7 +11,7 @@ Accepted contributions:
 2. Fork the repo
 3. Do your code changes push it
 4. Submit a pull request mentioning the issue it will fix
-5. After review, your branch will be merged to `dev`
+5. After review, your branch will be merged
 6. Once everything for a release is tested and verified, all changes will be merged with `master`/`main`
 
 ## License
